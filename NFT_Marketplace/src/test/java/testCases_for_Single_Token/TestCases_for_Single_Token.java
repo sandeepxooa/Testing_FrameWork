@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -19,6 +20,8 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import browserSetup.Pojo;
 import pom_package.Buy_Token_From_MarketPlace;
 import pom_package.Click_To_Refresh;
+import pom_package.Delist_Token;
+import pom_package.Destroy_Token;
 import pom_package.Log_out;
 import pom_package.Mint_Token_Through_Marketplace;
 import pom_package.My_Token_Tab;
@@ -47,7 +50,7 @@ public class TestCases_for_Single_Token extends Pojo{
 	@BeforeClass
 	public void OpenBrowser()
 	{
-		//        parentTest.set(parent);
+//		      parentTest.set(parent);
 		driver= OpenChrome();
 		//driver =OpenMozila();
 
@@ -57,9 +60,9 @@ public class TestCases_for_Single_Token extends Pojo{
 		@BeforeMethod 
 		public void BeforeMethod(Method method) 
 		{
-//					extent = Extnd.createInstance("extent.html");
-//				ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
-//				extent.attachReporter(htmlReporter);
+					extent = Extnd.createInstance("extent.html");
+				ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
+				extent.attachReporter(htmlReporter);
 				ExtentTest parent = extent.createTest(getClass().getName());
 			    parentTest.set(parent);
 			    
@@ -265,8 +268,8 @@ public class TestCases_for_Single_Token extends Pojo{
 		
 	}
 
-	/*
-	@Test(priority =11 )
+	
+	@Test(priority =12)
 	public void Validate_Destroy_option() throws InterruptedException, AWTException
 	{ 
 		Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);		
@@ -290,7 +293,7 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 
-	@Test(priority =12 )
+	@Test(priority =13 )
 	public void Validate_Delist_option() throws InterruptedException, AWTException
 	{    
 		Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);		
@@ -319,7 +322,7 @@ public class TestCases_for_Single_Token extends Pojo{
 
 
 
-
+	/*
 	
 	
 	@Test
@@ -362,27 +365,33 @@ public class TestCases_for_Single_Token extends Pojo{
 		@AfterMethod	
 		public synchronized void afterMethod(ITestResult result) 
 		{
-	        if (result.getStatus() == ITestResult.FAILURE)
+//	        if (result.getStatus() == ITestResult.FAILURE)
+//	             ((ExtentTest) test.get()).fail(result.getThrowable());
+//	        else if (result.getStatus() == ITestResult.SKIP)
+//	            ((ExtentTest) test.get()).skip(result.getThrowable());
+//	        else
+//	            ((ExtentTest) test.get()).pass("Test passed");
+	
+	       // extent.flush();
+	    }
+	
+//	
+		@AfterClass
+	public void after_class(ITestResult result)  throws InterruptedException
+		{
+			if (result.getStatus() == ITestResult.FAILURE)
 	             ((ExtentTest) test.get()).fail(result.getThrowable());
 	        else if (result.getStatus() == ITestResult.SKIP)
 	            ((ExtentTest) test.get()).skip(result.getThrowable());
 	        else
 	            ((ExtentTest) test.get()).pass("Test passed");
-	
-	        //extent.flush();
-	    }
-	
-//	
-//		@AfterClass
-//		public void after_class() throws InterruptedException
-//		{
 //			Log_out logoutfromselleraccount=new Log_out(driver);
 //			//logoutfromselleraccount.Click_on_ProfileLink();
 //			logoutfromselleraccount.Click_on_SignOutButton();
 //			driver.quit();
 //			
-//	       extent.flush();
-//	}
+	       extent.flush();
+      }
 
 
 }
