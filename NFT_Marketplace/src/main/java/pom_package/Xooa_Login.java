@@ -45,7 +45,7 @@ public class Xooa_Login {
 			}
 	}
 	
-	
+	//seller login
 	public void SendUsername()
 	{
 		username.sendKeys("demo.xooa@gmail.com");
@@ -57,7 +57,7 @@ public class Xooa_Login {
 	
 	
 	
-	// 2nd user
+	// 2nd user-buyer
 	public void SendtestUsername()
 	{
 		

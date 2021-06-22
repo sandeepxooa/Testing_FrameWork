@@ -6,19 +6,36 @@
       <class name="testCases_for_Single_Token.TestCases_for_Single_Token">
         <methods>
           <include name="BeforeMethod"/>
-          <include name="afterMethod"/>
+          <include name="Validate_Minted_Token"/>
           <include name="after_class"/>
-          <include name="beforeSuite"/>
+          <include name="Buy_Token"/>
+          <include name="Validate_for_minting_token_from_marketplace_with_single_edition_WithoutAnyRoyaltyCheck"/>
           <include name="OpenBrowser"/>
+          <include name="openMarketplace"/>
           <include name="Validate_Delist_option"/>
+          <include name="Validate_for_OTP_and_Decline_the_update"/>
+          <include name="Validate_Destroy_option"/>
+          <include name="login_with_other_user"/>
+          <include name="Verifylogin"/>
+          <include name="afterMethod"/>
+          <include name="logout_buyer_account"/>
+          <include name="Validate_Success_Massage_for_minted_token"/>
+          <include name="SellToken"/>
+          <include name="beforeSuite"/>
           <include name="Validate_secondary_sell"/>
         </methods>
       </class> <!-- testCases_for_Single_Token.TestCases_for_Single_Token -->
       <class name="testCases_for_Single_Token.testCases_for_Multiple_Editions">
         <methods>
+          <include name="Validate_Token_Minting_for_multiple_Editions"/>
+          <include name="login_with_other_user"/>
+          <include name="Validate_SellAllEditions_option"/>
           <include name="Validate_Destroy_option"/>
+          <include name="Verifylogin_for_Multiple_Editon_Validation"/>
           <include name="OpenBrowser"/>
           <include name="Validate_BuyEdition_option"/>
+          <include name="Validate_Success_Massage_for_minted_token"/>
+          <include name="logout_buyer_account"/>
         </methods>
       </class> <!-- testCases_for_Single_Token.testCases_for_Multiple_Editions -->
     </classes>

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -23,13 +24,12 @@ public class Mint_Token_Through_Marketplace {
 
 	WebDriver driver;
 	
- static String Token_Name;
+    static String Token_Name;
  
 	@FindBy(xpath="//div[@id='root']//div[2]//div//nav")
 	private WebElement sidebar;
 	
 
-	
 	@FindBy(xpath="//div[@id='root']//div/button[@class='d-md-down-none p-0 navbar-toggler']")
 	private WebElement NavigationButton;
 	
@@ -257,8 +257,12 @@ public void MintSingleTokenFromMarketplace_OneCategory() throws InterruptedExcep
 //					
 //				upld.uploadFile("C:\\Users\\xooa\\Desktop\\Images for minting\\th (1).jpg");
 					
+//					String ImagePath=("user.home") + File.separator + "Assets_to_mint" + 
+//							File.separator + "Image.jpg";
+//					 StringSelection ss = new StringSelection(ImagePath);
+
 					
-					 StringSelection ss = new StringSelection("C:\\Users\\xooa\\eclipse-workspace\\Xooa_NFT\\src\\test\\resources\\Image_to_Mint\\th (1).jpg");
+					StringSelection ss = new StringSelection("C:\\Users\\xooa\\eclipse-workspace\\Xooa_NFT\\src\\test\\resources\\Image_to_Mint\\th (1).jpg");
 				     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 				     
@@ -443,8 +447,6 @@ public  void MintMultipleEditionTokenFromMarketplace_OneCategory() throws Interr
 					
 				MintButton.click();
 				
-				
-		
-		
+	
 	 }
 }

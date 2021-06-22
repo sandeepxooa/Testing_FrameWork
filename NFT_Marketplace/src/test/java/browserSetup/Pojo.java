@@ -1,6 +1,8 @@
 package browserSetup;
 
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,12 +15,12 @@ public class Pojo
 {
 
 
-
+	
 	public static WebDriver OpenChrome()
 	{
 
-
-		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver91.exe");
+         String path="." + File.separator + "Driver" + File.separator + "chromedriver91.exe";
+		System.setProperty("webdriver.chrome.driver",path );
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://blockchain.ci.xooa.io/");
