@@ -22,6 +22,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import browserSetup.Pojo;
 import pom_package.Buy_Token_From_MarketPlace;
+import pom_package.Delist_Token;
 import pom_package.Destroy_Token;
 import pom_package.Log_out;
 import pom_package.Mint_Token_Through_Marketplace;
@@ -47,7 +48,6 @@ public void OpenBrowser()
 {
   
 	driver= OpenChrome();
-	
     
 }
 
@@ -74,7 +74,7 @@ public void OpenBrowser()
 		        			
 		        			appurl.NFT_Marketplace_url();		   
 	}
-	
+/*	
   @Test(priority =2 )
   public void Validate_Token_Minting_for_multiple_Editions() throws InterruptedException, AWTException
   {
@@ -167,7 +167,32 @@ public void OpenBrowser()
 				  destroyAllEditios.Click_on_MyToken_Naviagtion();
 				  destroyAllEditios.Detsroy_AllEditions();
 	 }
-  
+  */
+	 
+	 @Test(priority =9 )
+	 public void Validate_Dilist_option_for_Multiple_editions() throws InterruptedException, AWTException
+	 {
+		 Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);
+			appurl.NFT_Marketplace_url();
+			
+			 Mint_Token_Through_Marketplace mintToken=  new Mint_Token_Through_Marketplace(driver);
+				  mintToken.MintMultipleEditionTokenFromMarketplace_OneCategory();
+				  Thread.sleep(2000);
+				  
+				  
+				  Thread.sleep(7000);
+
+
+					My_Token_Tab token=new My_Token_Tab(driver);
+					token.ValidateTokenInMyToken();
+					
+					
+					Delist_Token dilist = new Delist_Token(driver);
+					dilist.Delist_AllEditions();
+	 
+	 }
+	 
+	 
   
 	
 

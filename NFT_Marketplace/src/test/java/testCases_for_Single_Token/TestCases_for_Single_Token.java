@@ -22,6 +22,7 @@ import pom_package.Buy_Token_From_MarketPlace;
 import pom_package.Click_To_Refresh;
 import pom_package.Delist_Token;
 import pom_package.Destroy_Token;
+import pom_package.Gift_Token;
 import pom_package.Log_out;
 import pom_package.Mint_Token_Through_Marketplace;
 import pom_package.My_Token_Tab;
@@ -104,7 +105,7 @@ public class TestCases_for_Single_Token extends Pojo{
 		//Assert.assertTrue(true, "OTP Validation and profile update has skipped succesully");
 	}
 
-
+	
 	@Test (priority = 3)
 	public void openMarketplace() throws InterruptedException
 	{
@@ -191,19 +192,20 @@ public class TestCases_for_Single_Token extends Pojo{
 
 	}
 
-	
-	@Test(priority=8)
-	public void Buy_Token_With_same_seller_Account() throws InterruptedException
-	{
-		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
-		buy.Click_on_GeneralMarket_Button();
-		buy.Buy_Token_of_single_Edition();
-		Thread.sleep(2000);
-		buy.StripModal();
-		buy.Close_to_StripePayment_modal();
-		buy.Close_to_Buy_modal();
-		
-	}
+//	
+//	@Test(priority=8)
+//	public void Buy_Token_With_same_seller_Account() throws InterruptedException
+//	{
+//		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
+//		buy.Click_on_GeneralMarket_Button();
+//		buy.Buy_Token_of_single_Edition();
+//		Thread.sleep(2000);
+//		buy.StripModal();
+//		Thread.sleep(2000);
+//		buy.Close_to_StripePayment_modal();
+//		buy.Close_to_Buy_modal();
+//		
+//	}
 	
 	
 @Test(priority=9)
@@ -238,11 +240,22 @@ public class TestCases_for_Single_Token extends Pojo{
 
 
 	}
-
-
-
-
+	
 	@Test(priority=11)
+	public void Buy_Token_Other_Buyer_account_Missing_Card_Details() throws InterruptedException
+	{
+		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
+		buy.Click_on_GeneralMarket_Button();
+		buy.Buy_Token_of_single_Edition();
+		buy.StripModal_without_Card_data();;
+		Thread.sleep(2000);	
+		buy.Close_to_StripePayment_modal();
+		buy.Close_to_Buy_modal();
+
+	}
+
+
+	@Test(priority=12)
 	public void Buy_Token_Other_Buyer_account() throws InterruptedException
 	{
 		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
@@ -254,8 +267,8 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 	
 	
-	/*
-//	@Test(priority=11)
+	
+//	@Test(priority=13)
 //	public void Validate_secondary_sell() throws InterruptedException, AWTException
 //	{  
 //		
@@ -283,9 +296,9 @@ public class TestCases_for_Single_Token extends Pojo{
 //}
 	
 	
-	*/
 	
-	@Test(priority=12)
+	
+	@Test(priority=13)
 	public void Validate_Minting_Function_With_missing_one_Mandantory_filed_eg_Name() throws InterruptedException, AWTException
 	{
 		Mint_Token_Through_Marketplace mint= new Mint_Token_Through_Marketplace(driver);
@@ -293,7 +306,7 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 
-	@Test(priority =12)
+	@Test(priority =14)
 	public void Validate_Destroy_option() throws InterruptedException, AWTException
 	{ 
 		Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);		
@@ -317,7 +330,7 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 
-	@Test(priority =13 )
+	@Test(priority =15 )
 	public void Validate_Delist_option() throws InterruptedException, AWTException
 	{    
 		Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);		
@@ -342,13 +355,34 @@ public class TestCases_for_Single_Token extends Pojo{
 		delist.Delist_Token();
 		Thread.sleep(5000);	
 	}
+ 
+	 
+	
+	
+	@Test(priority=16)
+	public void Validate_Gift_Token_Functionality() throws InterruptedException, AWTException
+	{
+				
+		Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);		
+		appurl.NFT_Marketplace_url();
 
 
+		Mint_Token_Through_Marketplace mintToken=new Mint_Token_Through_Marketplace(driver)	 ;           
+		mintToken.MintSingleTokenFromMarketplace_OneCategory();
 
-
+		Thread.sleep(7000);
+		My_Token_Tab token=new My_Token_Tab(driver);
+		token.ValidateTokenInMyToken();
+		
+		Gift_Token gift = new Gift_Token(driver);
+		gift.Click_on_NFT_Wallet_tab();
+		gift.Click_on_more_Button();
+		gift.Click_on_Gift_Option_onToken();
+		//gift.Insert_WalletAddress();
+		gift.Click_on_GiftButton_onModal();
+	}
+	
 	/*
-	
-	
 	@Test
 	public void Validate_Minting_token_from_marketplace_with_multi_edition_WithoutAnyRoyaltyCheck() throws InterruptedException
 	{

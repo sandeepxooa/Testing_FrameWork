@@ -347,6 +347,83 @@ public class Buy_Token_From_MarketPlace
 
 	
 	}
+	
+	
+	
+	public void StripModal_without_Card_data() throws InterruptedException 
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Purchase ']")));
+
+		
+		WebElement BuyerName_onPaymentModal= driver.findElement(By.xpath("//*[@id='name']"));  //(//div[@class='modal-content'])[2]//input[@id='name']
+		Thread.sleep(1000);
+		BuyerName_onPaymentModal.clear();
+		BuyerName_onPaymentModal.sendKeys("Demo.xooa");	
+
+		WebElement BuyerEmail_onPaymentModal= driver.findElement(By.xpath("//input[@id='email']"));   //(//div[@class='modal-content'])[2]//input[@id='email']
+		Thread.sleep(1000);
+		BuyerEmail_onPaymentModal.clear();
+		BuyerEmail_onPaymentModal.sendKeys("demo.xooa@gmail.com");	
+
+
+		WebElement BuyerNumber_onPaymentModal= driver.findElement(By.xpath("//input[@id='phone']"));   //(//div[@class='modal-content'])[2]//input[@id='phone']
+		BuyerNumber_onPaymentModal.clear();
+		Thread.sleep(1000);
+		BuyerNumber_onPaymentModal.sendKeys("9999999999");	
+
+
+
+
+		Thread.sleep(2000);
+
+		//				WebElement CardNumber1= driver.findElement(By.tagName("iframe"));					
+		//				System.out.println("iframe "+CardNumber1.isDisplayed());
+
+/*
+		//get iframe count
+		int size = driver.findElements(By.tagName("iframe")).size();
+		System.out.println("iframes available on page are "+size);
+
+
+		//Switching to iframe
+		int requiredIndexOfFrame= size-1;
+		Thread.sleep(1000);
+		driver.switchTo().frame(requiredIndexOfFrame);
+		Thread.sleep(1000);
+
+		WebElement CardNumber= driver.findElement(By.xpath("//*[@placeholder='Card number']"));	
+		System.out.println("CardNumber Element is " + CardNumber.isDisplayed());
+
+		CardNumber.sendKeys("4242424242424242");
+
+		//				boolean g= CardNumber.isDisplayed();
+		//				System.out.println("iFrame"+g);
+		//				Thread.sleep(1000);
+
+		WebElement ExpiryDate= driver.findElement(By.xpath("//*[@name='exp-date']"));
+		ExpiryDate.sendKeys("0424");	
+
+		WebElement cvc= driver.findElement(By.xpath("//*[@name='cvc']"));
+		cvc.sendKeys("42442424");
+		//				
+		//				WebElement Zipcode= driver.findElement(By.xpath("//*[@name='cvc']"));
+		//				Zipcode.sendKeys("42424");	
+*/
+		//				Thread.sleep(2000);
+		driver.switchTo().defaultContent();
+
+
+
+		WebElement Authorize_Charge_Button= driver.findElement(By.xpath("//*//button[text()=' Authorize Charge']"));
+		Authorize_Charge_Button.click();
+
+
+
+
+
+	}
+
 
 
 
