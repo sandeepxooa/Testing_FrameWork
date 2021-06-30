@@ -25,7 +25,11 @@ public class Mint_Token_Through_Marketplace {
 	WebDriver driver;
 	
     static String Token_Name;
- 
+    static String errorMassageOn_MintingModal;
+    static String RequiredMssgeTextOn_MintingModal;
+	
+	
+	
 	@FindBy(xpath="//div[@id='root']//div[2]//div//nav")
 	private WebElement sidebar;
 	
@@ -95,6 +99,10 @@ public class Mint_Token_Through_Marketplace {
 	private WebElement No_Radio_button_For_Sell_option;
 	
 	
+	@FindBy(xpath="//div[@role='alert']")
+	private WebElement ErrorMassageDivOnMintingModule;
+	
+	
 //			@FindBy(xpath="(@FindBy(xpath=\"(//div[@class='modal fade show']//input)[2]\")\r\n"
 //					+ "	private WebElement EditionTab;")
 //			private WebElement SellingAndOwnershipLink;
@@ -138,7 +146,7 @@ public class Mint_Token_Through_Marketplace {
 //	public void click_on_myToken() throws InterruptedException
 //	{
 //		
-//		
+//		 
 //		Set<String> ab = driver.getWindowHandles();
 //		System.out.println(ab);
 //		Thread.sleep(3000);
@@ -260,9 +268,16 @@ public void MintSingleTokenFromMarketplace_OneCategory() throws InterruptedExcep
 //					String ImagePath=("user.home") + File.separator + "Assets_to_mint" + 
 //							File.separator + "Image.jpg";
 //					 StringSelection ss = new StringSelection(ImagePath);
-
+				
 					
-					StringSelection ss = new StringSelection("C:\\Users\\xooa\\eclipse-workspace\\Xooa_NFT\\src\\test\\resources\\Image_to_Mint\\th (1).jpg");
+					String root = System.getProperty("user.dir");
+					String filepath = File.separator+"Assets_to_mint"+File.separator+"Image.jpg"; 
+					String abspath = root+filepath;
+					System.out.println(abspath);
+					
+					 StringSelection ss = new StringSelection(abspath);
+					
+				//	StringSelection ss = new StringSelection("C:\\Users\\xooa\\eclipse-workspace\\Xooa_NFT\\src\\test\\resources\\Image_to_Mint\\th (1).jpg");
 				     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 				     
@@ -291,18 +306,135 @@ public void MintSingleTokenFromMarketplace_OneCategory() throws InterruptedExcep
 					
 					//Thread.sleep(3000);
 					
-					
+					//MintButton..............
 						Actions act1 =  new Actions(driver);
 						act1.moveToElement(driver.findElement(By.xpath("//div[@class='modal fade show']//button[@class='btn btn-primary']"))).click().perform();
 							
 					//MintButton.click();
 					
-					
-	  
-
-  
+					Thread.sleep(2000);
+				
 	
 }
+
+
+public void MintSingleTokenFromMarketplace_OneCategory_without_TokenName() throws InterruptedException, AWTException
+
+{   
+WebDriverWait wait1 = new WebDriverWait(driver,20);
+ wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='root']//child::button[text()='Mint Collectible']")));
+			     Thread.sleep(5000);
+
+				  MintCollectableButton.click();
+
+//				MintTokenButton.click();
+				  Thread.sleep(3000);
+				boolean validateModal =Browselink.isDisplayed();
+			
+			
+				 
+				    
+//			   SimpleDateFormat formatter = new SimpleDateFormat("dd-MM HH-mm");  
+//			   Date date = new Date();  	     
+//			   String str1 =formatter.format(date);
+//			   Token_Name= "Test_Token"+str1;
+			   
+				
+				//EditionTab.clear();
+				Thread.sleep(500);
+				//EditionTab.sendKeys("4");
+				TradingCheckbox.click();
+				
+				ArtCheckbox.click();
+				
+				Browselink.click();
+				Thread.sleep(2000);
+				
+//			UploadFile_to_mint_token upld =new UploadFile_to_mint_token();
+//				
+//			upld.uploadFile("C:\\Users\\xooa\\Desktop\\Images for minting\\th (1).jpg");
+				
+//				String ImagePath=("user.home") + File.separator + "Assets_to_mint" + 
+//						File.separator + "Image.jpg";
+//				 StringSelection ss = new StringSelection(ImagePath);
+			
+				
+				String root = System.getProperty("user.dir");
+				String filepath = File.separator+"Assets_to_mint"+File.separator+"Image.jpg"; 
+				String abspath = root+filepath;
+				System.out.println(abspath);
+				
+				 StringSelection ss = new StringSelection(abspath);
+				
+				//StringSelection ss = new StringSelection("C:\\Users\\xooa\\eclipse-workspace\\Xooa_NFT\\src\\test\\resources\\Image_to_Mint\\th (1).jpg");
+			     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+			     
+			     Robot robot = new Robot();
+			     robot.delay(250);
+			     robot.keyPress(KeyEvent.VK_ENTER);
+			     robot.keyRelease(KeyEvent.VK_ENTER);
+			     robot.keyPress(KeyEvent.VK_CONTROL);
+			     robot.keyPress(KeyEvent.VK_V);
+			     robot.keyRelease(KeyEvent.VK_V);
+			     robot.keyRelease(KeyEvent.VK_CONTROL);
+			     robot.keyPress(KeyEvent.VK_ENTER);
+			     robot.delay(90);
+			     robot.keyRelease(KeyEvent.VK_ENTER);
+				
+				Thread.sleep(10000);
+				Actions act =  new Actions(driver);
+				act.moveToElement(driver.findElement(By.xpath("//div[@class='modal fade show']//a[@href='#royaltiesSelling']"))).click().perform();
+					
+				//SellingAndOwnershipLink.click();
+				No_Radio_button_For_Sell_option.click();
+				
+				
+				Thread.sleep(3000);
+				//SellingAndOwnershipLink.click();
+				
+				//Thread.sleep(3000);
+				
+				
+					Actions act1 =  new Actions(driver);
+					act1.moveToElement(driver.findElement(By.xpath("//div[@class='modal fade show']//button[@class='btn btn-primary']"))).click().perform();
+						
+				//MintButton.click();
+					
+					Actions act2 =  new Actions(driver);
+					act2.moveToElement(driver.findElement(By.xpath("//div[@role='alert']")));
+					
+					WebElement massge =driver.findElement(By.xpath("//div[@role='alert']"));
+					String errorMassageOn_MintingModal= massge.getText();
+
+					//String errorMassageOn_MintingModal= ErrorMassageDivOnMintingModule.getText();
+					
+					
+					System.out.println(ErrorMassageDivOnMintingModule.isDisplayed());
+					System.out.println(errorMassageOn_MintingModal);
+					  
+					String RequiredMssgeTextOn_MintingModal="Error with submission data, please fix all validation errors.";
+	               
+					//System.out.println(RequiredMssgeTextOn_MintingModal);
+					
+					if (errorMassageOn_MintingModal.equals(RequiredMssgeTextOn_MintingModal))
+					{
+						System.out.println("Displying correct error massage");
+					}
+					
+					Thread.sleep(1000);
+					Actions act3 =  new Actions(driver);
+					act3.moveToElement(driver.findElement(By.xpath("//button[text()='Close']"))).click().perform();;
+//  WebElement closeButton =driver.findElement(By.xpath("//button[text()='Close']"));
+//  closeButton.click();
+					
+  
+
+
+
+}
+
+
 
 
 
@@ -349,8 +481,16 @@ public  void MintMultipleEditionTokenFromMarketplace_OneCategory() throws Interr
 //					
 //				upld.uploadFile("C:\\Users\\xooa\\Desktop\\Images for minting\\th (1).jpg");
 					
+
+					String root = System.getProperty("user.dir");
+					String filepath = File.separator+"Assets_to_mint"+File.separator+"Image.jpg"; 
+					String abspath = root+filepath;
+					System.out.println(abspath);
 					
-					 StringSelection ss = new StringSelection("C:\\Users\\xooa\\eclipse-workspace\\Xooa_NFT\\src\\test\\resources\\Image_to_Mint\\th (1).jpg");
+					 StringSelection ss = new StringSelection(abspath);
+					// StringSelection ss = new StringSelection("C:\\Users\\xooa\\Desktop\\Images for minting\\th (1).jpg");
+				
+					 
 				     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 				     

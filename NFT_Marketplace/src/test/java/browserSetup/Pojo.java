@@ -18,12 +18,24 @@ public class Pojo
 	
 	public static WebDriver OpenChrome()
 	{
-
-         String path="." + File.separator + "Driver" + File.separator + "chromedriver91.exe";
-		System.setProperty("webdriver.chrome.driver",path );
+		
+		
+//		String root = System.getProperty("user.dir");
+//		System.out.println(root);
+//		String filepath = "Drivers"+File.separator+"chromedriver91.exe"; 
+//		String path = root+filepath;
+		
+		//String path= "C:\\Users\\xooa\\git\\Testing_FrameWork\\Testing_FrameWork\\NFT_Marketplace\\Drivers\\chromedriver91.exe";
+		//"." + File.separator +
+		
+		
+        // String path="Driver" + File.separator + "chromedriver91.exe";
+		
+		
+		System.setProperty("webdriver.chrome.driver","."+File.separator+"Drivers"+File.separator+"chromedriver91.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://blockchain.ci.xooa.io/");
+		driver.get("https://blockchain.ci.xooa.io");
 		//driver.get("https://blockchain.ci.xooa.io/apps-console/8038d538-96d0-4faa-82f9-bb33db396ae7");
 		return driver;
 

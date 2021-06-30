@@ -3,6 +3,7 @@ package pom_package;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +21,7 @@ WebDriver driver;
 	@FindBy(xpath="(//div[@class='container-fluid']//div[@class='row'])[1]")
 	private WebElement MyToken_container;
 	
-	@FindBy(xpath="//div[@id='root']//span[text()='My Tokens']/parent::a")
+	@FindBy(xpath="(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")
 	private WebElement My_Token_navigation_button;
 	
 	
@@ -40,8 +41,13 @@ WebDriver driver;
 		
 		
 		WebDriverWait wait2 = new WebDriverWait(driver,20);
-		 wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='root']//span[text()='My Tokens']/parent::a")));
-		My_Token_navigation_button.click();
+		 wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")));
+		 
+		 
+		 Actions act=new Actions(driver);
+			act.moveToElement(driver.findElement(By.xpath("(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")));
+		 
+	//	 My_Token_navigation_button.click();
 		
 	}
 	
@@ -50,7 +56,7 @@ WebDriver driver;
 			Thread.sleep(5000);
 		
 		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div/button[text()='More']
-				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div/button[text()='More']";
+				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div/button[text()='More']";
 				
 				
 				WebDriverWait wait1 = new WebDriverWait(driver,20);
@@ -79,7 +85,55 @@ WebDriver driver;
 //				Thread.sleep(5000);
 				
 				
-				String DestroyOptionindex="(//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div//div/button)[3]";
+				String DestroyOptionindex="(//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div//div/button)[3]";
+				WebElement DestroyButtonindex= driver.findElement(By.xpath(DestroyOptionindex));
+				DestroyButtonindex.click();
+				
+				WebDriverWait wait3 = new WebDriverWait(driver,20);
+				 wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='modal-content']//button[text()='Destroy']")));
+				
+				WebElement DestroyButtonOnModal= driver.findElement(By.xpath("//div[@class='modal-content']//button[text()='Destroy']"));
+				
+				DestroyButtonOnModal.click();
+				
+				
+	}
+	
+	public void Detsroy_AllEditions() throws InterruptedException
+	{
+			Thread.sleep(5000);
+		
+		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div/button[text()='More']
+				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div/button[text()='More']";
+				
+				
+				WebDriverWait wait1 = new WebDriverWait(driver,20);
+				 wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(MoreOption)));
+				
+
+				WebElement MoreButton= driver.findElement(By.xpath(MoreOption));
+				
+				MoreButton.click();
+				
+				Thread.sleep(3000);
+				
+				
+				
+//				//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Thu Jun 10 13:25:54 GMT 2021']//parent::div/following-sibling::button/div/div//div/button[text()='Destroy Token']
+//				String DestroyOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div//div/button[text()='Destroy Token']";
+//
+//				WebElement DestroyButton= driver.findElement(By.xpath(DestroyOption));
+//				
+//				 
+//				Actions token=new Actions(driver);
+//				token.moveToElement(driver.findElement(By.xpath(DestroyOption)));
+//				Thread.sleep(2000);
+//
+//				DestroyButton.clear();
+//				Thread.sleep(5000);
+				
+				
+				String DestroyOptionindex="(//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div//div/button)[4]";
 				WebElement DestroyButtonindex= driver.findElement(By.xpath(DestroyOptionindex));
 				DestroyButtonindex.click();
 				

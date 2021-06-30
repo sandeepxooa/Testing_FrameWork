@@ -98,7 +98,7 @@ public void OpenBrowser()
 	 public void Validate_SellAllEditions_option() throws InterruptedException 
 	  {
 		  Sell_token sellMultiEdition= new Sell_token(driver);
-		  sellMultiEdition.ViewToken();
+		//  sellMultiEdition.ViewToken();
 		  sellMultiEdition.Sell_Multiple_Edition_Token();
 	  }
 	 
@@ -142,14 +142,30 @@ public void OpenBrowser()
 		 
 		 buyEdition.Click_on_GeneralMarket_Button();
 		 buyEdition.Buy_Token_of_Multiple_Edition();
+		 buyEdition.StripModal();
 	 }
 	 
 	 @Test(priority =8 )
-	 public void Validate_Destroy_option() throws InterruptedException
+	 public void Validate_Destroy_option_for_Multiple_editions() throws InterruptedException, AWTException
 	 {
-		 Destroy_Token destroy= new Destroy_Token(driver);
-		 destroy.Click_on_MyToken_Naviagtion();
-		 destroy.Detsroy_Token();
+		 Open_NFT_Marketplace appurl = new Open_NFT_Marketplace(driver);
+			appurl.NFT_Marketplace_url();
+			
+			 Mint_Token_Through_Marketplace mintToken=  new Mint_Token_Through_Marketplace(driver);
+				  mintToken.MintMultipleEditionTokenFromMarketplace_OneCategory();
+				  Thread.sleep(2000);
+				  
+				  
+				  Thread.sleep(7000);
+
+
+					My_Token_Tab token=new My_Token_Tab(driver);
+					token.ValidateTokenInMyToken();
+					
+					
+				  Destroy_Token destroyAllEditios= new Destroy_Token(driver);
+				  destroyAllEditios.Click_on_MyToken_Naviagtion();
+				  destroyAllEditios.Detsroy_AllEditions();
 	 }
   
   

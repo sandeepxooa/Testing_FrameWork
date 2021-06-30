@@ -22,7 +22,7 @@ public class Delist_Token {
 	@FindBy(xpath="(//div[@class='container-fluid']//div[@class='row'])[1]")
 	private WebElement MyToken_container;
 	
-	@FindBy(xpath="//div[@id='root']//span[text()='My Tokens']/parent::a")
+	@FindBy(xpath="(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")
 	private WebElement My_Token_navigation_button;
 	
 	@FindBy(xpath="//div[@id='root']//div[@class='col']//div[@class='mb-2 mt-0 wrapword alert alert-success alert-dismissible fade show']")
@@ -48,7 +48,7 @@ public class Delist_Token {
 		
 		
 		WebDriverWait wait2 = new WebDriverWait(driver,20);
-		 wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='root']//span[text()='My Tokens']/parent::a")));
+		 wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")));
 		My_Token_navigation_button.click();
 		
 	}
@@ -60,8 +60,8 @@ public class Delist_Token {
 		
      Thread.sleep(7000);
 		
-		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div/button[text()='More']
-				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div/button[text()='More']";
+		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//ancestor::div/following-sibling::button/div/div/button[text()='More']
+				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div/button[text()='More']";
 				
 				
 				WebDriverWait wait1 = new WebDriverWait(driver,20);
@@ -75,8 +75,8 @@ public class Delist_Token {
 				
         Thread.sleep(5000);
 		
-      //div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Thu Jun 10 18:00:13 GMT 2021']//parent::div/following-sibling::button/div/div//div/button[text()='Delist Token']
-				String Delist="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div//div/button[text()='Delist Token']";
+      //div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Thu Jun 10 18:00:13 GMT 2021']//ancestor::div/following-sibling::button/div/div//div/button[text()='Delist Token']
+				String Delist="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div//div/button[text()='Delist Token']";
 				
 				
 				WebDriverWait wait2 = new WebDriverWait(driver,20);

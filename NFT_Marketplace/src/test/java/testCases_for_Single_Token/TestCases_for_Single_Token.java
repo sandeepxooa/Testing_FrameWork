@@ -57,25 +57,25 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 
-		@BeforeMethod 
-		public void BeforeMethod(Method method) 
-		{
-					extent = Extnd.createInstance("extent.html");
-				ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
-				extent.attachReporter(htmlReporter);
-				ExtentTest parent = extent.createTest(getClass().getName());
-			    parentTest.set(parent);
-			    
-			        ExtentTest child = ((ExtentTest) parentTest.get()).createNode(method.getName());
-			        test.set(child);
-	       
-			
-			
-		}
+//		@BeforeMethod 
+//		public void BeforeMethod(Method method) 
+//		{
+//					extent = Extnd.createInstance("extent.html");
+//				ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
+//				extent.attachReporter(htmlReporter);
+//				ExtentTest parent = extent.createTest(getClass().getName());
+//			    parentTest.set(parent);
+//			    
+//			        ExtentTest child = ((ExtentTest) parentTest.get()).createNode(method.getName());
+//			        test.set(child);
+//	       
+//			
+//			
+//		}
 
 
 	@Test (priority = 1)
-	public void Verifylogin() throws InterruptedException 
+	public void Login_for_sellers_account_with_valid_credentials() throws InterruptedException 
 	{
 		Xooa_Login userlogin = new Xooa_Login(driver);
 		Thread.sleep(3000);
@@ -95,13 +95,13 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 	@Test (priority = 2)
-	public void Validate_for_OTP_and_Decline_the_update() throws InterruptedException 
+	public void Validate_for_OTP_and_Decline_the_updates() throws InterruptedException 
 	{	
 		Thread.sleep(2000);
 		OTP_and_Update_Login_validation declineUpdate= new OTP_and_Update_Login_validation(driver);
 		declineUpdate.Skip_to_update_mobileNo_Massege();
 
-		Assert.assertTrue(true, "OTP Validation and profile update has skipped succesully");
+		//Assert.assertTrue(true, "OTP Validation and profile update has skipped succesully");
 	}
 
 
@@ -112,6 +112,8 @@ public class TestCases_for_Single_Token extends Pojo{
 
 		appurl.NFT_Marketplace_url();
 		//appurl.selectNft10();
+		Thread.sleep(5000);
+
 	}
 
 
@@ -157,7 +159,7 @@ public class TestCases_for_Single_Token extends Pojo{
 		{   
 			Thread.sleep(5000);	
 			Sell_token View=new Sell_token(driver);
-			View.ViewToken();
+			//View.ViewToken();
 		}
 
 	@Test(priority=7)	
@@ -189,10 +191,24 @@ public class TestCases_for_Single_Token extends Pojo{
 
 	}
 
+	
+	@Test(priority=8)
+	public void Buy_Token_With_same_seller_Account() throws InterruptedException
+	{
+		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
+		buy.Click_on_GeneralMarket_Button();
+		buy.Buy_Token_of_single_Edition();
+		Thread.sleep(2000);
+		buy.StripModal();
+		buy.Close_to_StripePayment_modal();
+		buy.Close_to_Buy_modal();
 		
-@Test(priority=8)
+	}
+	
+/*	
+@Test(priority=9)
 
-	public void logout_buyer_account() throws InterruptedException
+	public void logout_Seller_account() throws InterruptedException
 	{
 		Log_out logoutfromselleraccount=new Log_out(driver);
 		logoutfromselleraccount.Click_on_ProfileLink();
@@ -202,7 +218,7 @@ public class TestCases_for_Single_Token extends Pojo{
 
 
 
-	@Test(priority=9)
+	@Test(priority=10)
 
 	public void login_with_other_user() throws InterruptedException
 	{
@@ -226,49 +242,57 @@ public class TestCases_for_Single_Token extends Pojo{
 
 
 
-	@Test(priority=10)
-	public void Buy_Token() throws InterruptedException
+	@Test(priority=11)
+	public void Buy_Token_Other_Buyer_account() throws InterruptedException
 	{
 		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
 		buy.Click_on_GeneralMarket_Button();
 		buy.Buy_Token_of_single_Edition();
+		buy.StripModal();
 		
 
 	}
 	
-	@Test(priority=11)
-	public void Validate_secondary_sell() throws InterruptedException, AWTException
-	{  
-		
-		Click_To_Refresh reLoad= new Click_To_Refresh(driver);
-	         reLoad.Click_on_AppLogo();
 	
-	Thread.sleep(5000);
-		My_Token_Tab token=new My_Token_Tab(driver);
-		//  token.Validate_Minted_token_in_My_Token();
-		token.ValidateTokenInMyToken();
-		System.out.println("Clicked on MT");
-		
-		
-		
-		Thread.sleep(2000);	
-		Sell_token sell=new Sell_token(driver);
-		sell.Sell_Single_Edition_Token();
-		
-		
-//		SellPrice_Disbursement ValidateDisbursement= new SellPrice_Disbursement(driver);
-//		ValidateDisbursement.Validate_Disbursment_on_primary_Sell();
-		Thread.sleep(2000);
-
-        sell.Click_on_submit_Button();
-
-
-		
-		
-		
+	/*
+//	@Test(priority=11)
+//	public void Validate_secondary_sell() throws InterruptedException, AWTException
+//	{  
+//		
+//		Click_To_Refresh reLoad= new Click_To_Refresh(driver);
+//	         reLoad.Click_on_AppLogo();
+//	
+//	Thread.sleep(5000);
+//		My_Token_Tab token=new My_Token_Tab(driver);
+//		//  token.Validate_Minted_token_in_My_Token();
+//		token.ValidateTokenInMyToken();
+//		System.out.println("Clicked on MT");
+//		
+//		
+//		
+//		Thread.sleep(2000);	
+//		Sell_token sell=new Sell_token(driver);
+//		sell.Sell_Single_Edition_Token();
+//		
+//		
+////		SellPrice_Disbursement ValidateDisbursement= new SellPrice_Disbursement(driver);
+////		ValidateDisbursement.Validate_Disbursment_on_primary_Sell();
+//		Thread.sleep(2000);
+//
+//        sell.Click_on_submit_Button();
+//}
+	
+	
+	
+	
+	@Test(priority=12)
+	public void Validate_Minting_Function_With_missing_one_Mandantory_filed_eg_Name() throws InterruptedException, AWTException
+	{
+		Mint_Token_Through_Marketplace mint= new Mint_Token_Through_Marketplace(driver);
+		mint.MintSingleTokenFromMarketplace_OneCategory_without_TokenName();
 	}
 
-	
+
 	@Test(priority =12)
 	public void Validate_Destroy_option() throws InterruptedException, AWTException
 	{ 
@@ -311,7 +335,7 @@ public class TestCases_for_Single_Token extends Pojo{
 		Thread.sleep(5000);	
 		Sell_token sell=new Sell_token(driver);
 		sell.Sell_Single_Edition_Token();
-		
+		sell.Click_on_submit_Button();
 		
 		Delist_Token delist= new Delist_Token(driver);
 		//delist.Click_on_MyToken_Naviagtion();
@@ -360,7 +384,7 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 
-	 */
+	
 
 		@AfterMethod	
 		public synchronized void afterMethod(ITestResult result) 
@@ -376,22 +400,22 @@ public class TestCases_for_Single_Token extends Pojo{
 	    }
 	
 //	
-		@AfterClass
-	public void after_class(ITestResult result)  throws InterruptedException
-		{
-			if (result.getStatus() == ITestResult.FAILURE)
-	             ((ExtentTest) test.get()).fail(result.getThrowable());
-	        else if (result.getStatus() == ITestResult.SKIP)
-	            ((ExtentTest) test.get()).skip(result.getThrowable());
-	        else
-	            ((ExtentTest) test.get()).pass("Test passed");
+//		@AfterClass
+//	public void after_class(ITestResult result)  throws InterruptedException
+//		{
+//			if (result.getStatus() == ITestResult.FAILURE)
+//	             ((ExtentTest) test.get()).fail(result.getThrowable());
+//	        else if (result.getStatus() == ITestResult.SKIP)
+//	            ((ExtentTest) test.get()).skip(result.getThrowable());
+//	        else
+//	            ((ExtentTest) test.get()).pass("Test passed");
 //			Log_out logoutfromselleraccount=new Log_out(driver);
 //			//logoutfromselleraccount.Click_on_ProfileLink();
 //			logoutfromselleraccount.Click_on_SignOutButton();
 //			driver.quit();
 //			
-	       extent.flush();
-      }
+//	       extent.flush();
+//      }
 
-
+ */
 }

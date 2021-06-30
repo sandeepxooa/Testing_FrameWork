@@ -27,7 +27,7 @@ WebDriver driver;
 	@FindBy(xpath="//div[@id='root']//div[@class='col']//div[@class='mb-2 mt-0 wrapword alert alert-success alert-dismissible fade show']")
 	private WebElement MassageDiv;
 	
-	@FindBy(xpath="//div[@id='root']//span[text()='My Tokens']/parent::a")
+	@FindBy(xpath="(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")
 	private WebElement My_Token_navigation_button;
 	
 	
@@ -90,9 +90,9 @@ WebDriver driver;
 	public void ValidateTokenInMyToken() throws InterruptedException
 	{       Thread.sleep(3000);
 	WebDriverWait wait = new WebDriverWait(driver,20);
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='root']//span[text()='My Tokens']/parent::a")));
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]")));
 	Actions act1 =  new Actions(driver);
-	act1.moveToElement(driver.findElement(By.xpath("//div[@id='root']//span[text()='My Tokens']/parent::a"))).click().perform();
+	act1.moveToElement(driver.findElement(By.xpath("(//div[@id='root']//span[text()='NFT Wallet']/parent::a)[1]"))).click().perform();
 		
       	My_Token_navigation_button.click();
       	
@@ -104,7 +104,7 @@ WebDriver driver;
 			
 			
 			
-			String Tname="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']";
+			String Tname="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']";
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Tname)));
 			

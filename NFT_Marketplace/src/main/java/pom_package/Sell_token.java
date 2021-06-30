@@ -41,9 +41,10 @@ public class Sell_token
 	private WebElement CloseButton_on_viewToken;
 	
 	
-	@FindBy(xpath="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div/button[text()='More']")
+	@FindBy(xpath="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Thu Jun 24 14:37:34 GMT 2021']//parent::p//parent::div//parent::div/following-sibling::button/div/div/button[text()='More']")
 	private WebElement MoreButton;
 	
+	//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Thu Jun 24 14:37:34 GMT 2021']//ancestor::div/following-sibling::button/div/div/button[text()='More']
 	
 	
 	@FindBy(xpath="//div[@id='root']//div[@class='col']//div[@class='mb-2 mt-0 wrapword alert alert-success alert-dismissible fade show']")
@@ -80,8 +81,8 @@ public class Sell_token
 			
 			Thread.sleep(5000);
 			
-			String ViewToken="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/button[text()='View Token']";
-			//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/button[text()='View Token']
+			String ViewToken="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/button[text()='View Token']";
+			//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Tue Jun 29 11:23:42 GMT 2021']//ancestor::div/following-sibling::button/div/button[text()='View Token']
 		
 			Actions token=new Actions(driver);
 			token.moveToElement(driver.findElement(By.xpath(ViewToken)));
@@ -99,8 +100,8 @@ public class Sell_token
 				
 				WebDriverWait wait1 = new WebDriverWait(driver,20);
 				 wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='root']//button[text()='Back']")));
-				
-				CloseButton_on_viewToken.click();
+				 token.moveToElement(driver.findElement(By.xpath("//div[@id='root']//button[text()='Back']"))).click().perform();
+				//CloseButton_on_viewToken.click();
 				
 				
 	}
@@ -109,8 +110,8 @@ public class Sell_token
 	{
 		Thread.sleep(5000);
 		
-		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div/button[text()='More']
-				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div/button[text()='More']";
+		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Thu Jun 24 14:37:34 GMT 2021']//parent::p//parent::div//parent::div/following-sibling::button/div/div/button[text()='More']
+				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//parent::p//parent::div//parent::div/following-sibling::button/div/div/button[text()='More']";
 				
 				
 				WebDriverWait wait1 = new WebDriverWait(driver,20);
@@ -123,8 +124,8 @@ public class Sell_token
 				
 				Thread.sleep(3000);
 				
-				//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div//div/button[text()='Sell Token']
-				String SellOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div//div/button[text()='Sell Token']";
+				//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Thu Jun 24 11:11:54 GMT 2021']//ancestor::div/following-sibling::button/div/div//div/button[text()='Sell Token']
+				String SellOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div//div/button[text()='Sell Token']";
 				WebElement SellTokenButton= driver.findElement(By.xpath(SellOption));
 				SellTokenButton.click();
 				Thread.sleep(3000);
@@ -195,7 +196,7 @@ public class Sell_token
 		Thread.sleep(5000);
 		
 		//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Wed Jun 02 18:24:30 GMT 2021']//parent::div/following-sibling::button/div/div/button[text()='More']
-				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div/button[text()='More']";
+				String MoreOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//parent::p//parent::div//parent::div/following-sibling::button/div/div/button[text()='More']";
 				
 				
 				WebDriverWait wait1 = new WebDriverWait(driver,20);
@@ -208,8 +209,8 @@ public class Sell_token
 				
 				Thread.sleep(3000);
 				
-				//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='Test_Token_Thu Jun 10 13:56:51 GMT 2021']//parent::div/following-sibling::button/div/div//div/button[text()='Sell All Editions']
-				String SellOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']/p[text()='"+MintedTokenName+"']//parent::div/following-sibling::button/div/div//div/button[text()='Sell All Editions']";
+				//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='Test_Token_Thu Jun 10 13:56:51 GMT 2021']//ancestor::div/following-sibling::button/div/div//div/button[text()='Sell All Editions']
+				String SellOption="//div[@id='root']//div[@class='row']//div[@class='MuiCardContent-root px-2 pt-3 pb-1']//p/span[text()='"+MintedTokenName+"']//ancestor::div/following-sibling::button/div/div//div/button[text()='Sell All Editions']";
 				WebElement SellTokenButton= driver.findElement(By.xpath(SellOption));
 				SellTokenButton.click();
 				Thread.sleep(3000);

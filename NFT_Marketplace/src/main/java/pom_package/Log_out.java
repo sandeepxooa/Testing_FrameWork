@@ -28,7 +28,7 @@ public class Log_out
 		public void Click_on_ProfileLink() throws InterruptedException
 		{Thread.sleep(5000);
 		Actions act =  new Actions(driver);
-		act.moveToElement(driver.findElement(By.xpath("(//div[@id='root']//div[@class='custom-header']//a)[4]"))).click().perform();	
+		act.moveToElement(driver.findElement(By.xpath("//div[@id='root']//div[@class='custom-header']//a[@class='nav-link']"))).click().perform();	
 		}
 		
 		public void Click_on_SignOutButton() throws InterruptedException
