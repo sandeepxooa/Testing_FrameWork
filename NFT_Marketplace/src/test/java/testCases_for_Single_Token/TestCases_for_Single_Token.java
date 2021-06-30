@@ -205,7 +205,7 @@ public class TestCases_for_Single_Token extends Pojo{
 		
 	}
 	
-/*	
+	
 @Test(priority=9)
 
 	public void logout_Seller_account() throws InterruptedException
@@ -283,7 +283,7 @@ public class TestCases_for_Single_Token extends Pojo{
 //}
 	
 	
-	
+	*/
 	
 	@Test(priority=12)
 	public void Validate_Minting_Function_With_missing_one_Mandantory_filed_eg_Name() throws InterruptedException, AWTException
