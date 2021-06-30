@@ -30,9 +30,9 @@ public class Pojo
 		
 		
         // String path="Driver" + File.separator + "chromedriver91.exe";
+//		"."+File.separator+"Drivers"+File.separator+"chromedriver91.exe"
 		
-		
-		System.setProperty("webdriver.chrome.driver","."+File.separator+"Drivers"+File.separator+"chromedriver91.exe");
+		System.setProperty("webdriver.chrome.driver","Drivers"+File.separator+"chromedriver91.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://blockchain.ci.xooa.io");
