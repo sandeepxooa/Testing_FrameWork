@@ -74,7 +74,7 @@ public void OpenBrowser()
 		        			
 		        			appurl.NFT_Marketplace_url();		   
 	}
-/*	
+	
   @Test(priority =2 )
   public void Validate_Token_Minting_for_multiple_Editions() throws InterruptedException, AWTException
   {
@@ -167,7 +167,7 @@ public void OpenBrowser()
 				  destroyAllEditios.Click_on_MyToken_Naviagtion();
 				  destroyAllEditios.Detsroy_AllEditions();
 	 }
-  */
+ 
 	 
 	 @Test(priority =9 )
 	 public void Validate_Dilist_option_for_Multiple_editions() throws InterruptedException, AWTException

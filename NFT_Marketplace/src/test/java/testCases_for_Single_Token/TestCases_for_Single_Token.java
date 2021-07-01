@@ -105,7 +105,7 @@ public class TestCases_for_Single_Token extends Pojo{
 		//Assert.assertTrue(true, "OTP Validation and profile update has skipped succesully");
 	}
 
-	/*
+	
 	@Test (priority = 3)
 	public void openMarketplace() throws InterruptedException
 	{
@@ -193,19 +193,19 @@ public class TestCases_for_Single_Token extends Pojo{
 	}
 
 //	
-//	@Test(priority=8)
-//	public void Buy_Token_With_same_seller_Account() throws InterruptedException
-//	{
-//		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
-//		buy.Click_on_GeneralMarket_Button();
-//		buy.Buy_Token_of_single_Edition();
-//		Thread.sleep(2000);
-//		buy.StripModal();
-//		Thread.sleep(2000);
-//		buy.Close_to_StripePayment_modal();
-//		buy.Close_to_Buy_modal();
-//		
-//	}
+	@Test(priority=8)
+	public void Buy_Token_With_same_seller_Account() throws InterruptedException
+	{
+		Buy_Token_From_MarketPlace buy=new Buy_Token_From_MarketPlace(driver);
+		buy.Click_on_GeneralMarket_Button();
+		buy.Buy_Token_of_single_Edition();
+		Thread.sleep(2000);
+		buy.StripModal();
+		Thread.sleep(2000);
+		buy.Close_to_StripePayment_modal();
+		buy.Close_to_Buy_modal();
+		
+	}
 	
 	
 @Test(priority=9)
