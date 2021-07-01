@@ -5,23 +5,10 @@
     <classes>
       <class name="testCases_for_Single_Token.TestCases_for_Single_Token">
         <methods>
-          <include name="Buy_Token_Other_Buyer_account"/>
-          <include name="Validate_Minted_Token"/>
           <include name="Login_for_sellers_account_with_valid_credentials"/>
-          <include name="Validate_Gift_Token_Functionality"/>
-          <include name="Validate_for_minting_token_from_marketplace_with_single_edition_WithoutAnyRoyaltyCheck"/>
+          <include name="beforeSuite"/>
           <include name="OpenBrowser"/>
           <include name="Validate_for_OTP_and_Decline_the_updates"/>
-          <include name="openMarketplace"/>
-          <include name="Validate_Delist_option"/>
-          <include name="Validate_Destroy_option"/>
-          <include name="login_with_other_user"/>
-          <include name="Validate_Minting_Function_With_missing_one_Mandantory_filed_eg_Name"/>
-          <include name="Buy_Token_Other_Buyer_account_Missing_Card_Details"/>
-          <include name="Validate_Success_Massage_for_minted_token"/>
-          <include name="SellToken"/>
-          <include name="beforeSuite"/>
-          <include name="logout_Seller_account"/>
         </methods>
       </class> <!-- testCases_for_Single_Token.TestCases_for_Single_Token -->
     </classes>

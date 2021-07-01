@@ -105,7 +105,7 @@ public class TestCases_for_Single_Token extends Pojo{
 		//Assert.assertTrue(true, "OTP Validation and profile update has skipped succesully");
 	}
 
-	
+	/*
 	@Test (priority = 3)
 	public void openMarketplace() throws InterruptedException
 	{
