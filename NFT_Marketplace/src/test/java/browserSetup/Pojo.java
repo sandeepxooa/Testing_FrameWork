@@ -20,11 +20,11 @@ public class Pojo
 	{
 		
 		
-//		"./drivers/chromedriver"
+//		
 		
-		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver91.exe");
+//		System.setProperty("webdriver.chrome.driver","drivers/chromedriver91.exe");
 		
-		System.out.println("Drivers"+File.separator+"chromedriver91.exe");
+//		System.out.println("Drivers"+File.separator+"chromedriver91.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://blockchain.ci.xooa.io");
